@@ -31,7 +31,7 @@ class FakultasController extends Controller
         //dd($request);// menampilkan data pada web
         // validasi data input
         $val = $request -> validate([
-            'nama' => 'required',
+            'nama' => 'required|unique:fakultas',
             'singkatan' => 'required'
         ]);
         // simpan ke dalam tabel fakultas

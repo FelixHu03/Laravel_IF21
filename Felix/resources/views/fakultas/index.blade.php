@@ -6,7 +6,7 @@
     <p>Ini halaman daftar fakultas</p>
 
     @foreach ($fakultas as $fakulta)
-    {{ $fakulta['nama'] }} {{ $fakulta['singkatan'] }}<br>
+    {{ $fakulta['nama'] }} | {{ $fakulta['singkatan'] }}<br>
         
     @endforeach
 @endsection

@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fakultas;
 use App\Models\Prodi;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
 {
+    use HasFactory, HasUuids;
     /**
      * Display a listing of the resource.
      */
@@ -21,7 +25,9 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        $fakultas = Fakultas::all();
+        return view('prodi.create')
+                -> with('fakultas', $fakultas);
     }
 
     /**
@@ -29,7 +35,16 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);// menampilkan data pada web
+        // validasi data input
+        $val = $request -> validate([
+            'nama' => 'required|unique:prodis',
+            'fakultas_id' => 'required'
+        ]);
+        // simpan ke dalam tabel fakultas
+        Prodi::create($val);
+        // redirect ke route fakultas
+        return redirect()->route('prodi.index');
     }
 
     /**
