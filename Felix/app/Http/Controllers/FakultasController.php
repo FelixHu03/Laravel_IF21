@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class FakultasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $fakultas = Fakultas::all();// select * from fakultas
@@ -30,7 +28,16 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);// menampilkan data pada web
+        // validasi data input
+        $val = $request -> validate([
+            'nama' => 'required',
+            'singkatan' => 'required'
+        ]);
+        // simpan ke dalam tabel fakultas
+        Fakultas::create($val);
+        // redirect ke route fakultas
+        return redirect()->route('fakultas.store');
     }
 
     /**
