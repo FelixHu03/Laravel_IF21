@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fakultas', function (Blueprint $table) {
-            // $table->id();// auto increment
-            $table-> uuid('id');// uuid (unique Identifier)
+        Schema::create('prodis', function (Blueprint $table) {
+            $table->uuid('id');
             $table-> primary('id');
             $table->string('nama');
-            $table->string('singkatan', 4);//pembatasan 4 char
-            $table->timestamps();// bikin 2 kolom
+            $table->uuid('fakultas_id');
+            $table-> foreign('fakultas_id')->references('id')->on('fakultas');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fakultas');
+        Schema::dropIfExists('prodis');
     }
 };
