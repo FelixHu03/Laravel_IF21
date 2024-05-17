@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class ProdiController extends Controller
 {
-    use HasFactory, HasUuids;
+   
     /**
      * Display a listing of the resource.
      */
