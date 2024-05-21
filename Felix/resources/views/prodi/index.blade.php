@@ -19,13 +19,15 @@
                   <tr>
                       <th>Nama Prodi</th>
                       <th>Nama Fakultas</th>
+                      <th>Singkatan</th>
                   </tr>
                   </thead>
                   <tbody>
                      @foreach ($prodis as $prodi)
                      <tr> 
-                        <td>{{ $prodi['Fakultas']['singkatan'] }}</td>
-                        <td>{{ $prodi['nama'] }} {{ $prodi['Fakultas']['nama'] }} </td>
+                        <td>{{ $prodi['nama']}}</td>
+                        <td>{{ $prodi['Fakultas']['nama'] }} </td>
+                        <td>{{ $prodi['Fakultas']['singkatan'] }} </td>
                      </tr>      
                      @endforeach
                   </tbody>
@@ -35,5 +37,15 @@
           </div>
       </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @if (session('success'))
+      <script>
+        Swal.fire({
+            title: "Good job!",
+            text:"{{ session('success') }}",
+            icon: "success"
+        });
+      </script>
+  @endif
 @endsection
 

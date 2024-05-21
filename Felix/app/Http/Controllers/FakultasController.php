@@ -37,7 +37,8 @@ class FakultasController extends Controller
         // simpan ke dalam tabel fakultas
         Fakultas::create($val);
         // redirect ke route fakultas
-        return redirect()->route('fakultas.store');
+        return redirect()->route('fakultas.store')
+                    -> with('success', $val['nama'] . ' berhasil disimpan');
     }
 
     /**

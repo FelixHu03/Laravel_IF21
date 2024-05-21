@@ -44,7 +44,8 @@ class ProdiController extends Controller
         // simpan ke dalam tabel fakultas
         Prodi::create($val);
         // redirect ke route fakultas
-        return redirect()->route('prodi.index');
+        return redirect()->route('prodi.index')
+                -> with('success', $val['nama'] . ' berhasil disimpan');
     }
 
     /**
