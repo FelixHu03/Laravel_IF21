@@ -27,7 +27,7 @@ class MahasiswaController extends Controller
         $kota = kota::all();
 
         return view('mahasiswa.create')
-        -> with('prodi', $prodi)
+        ->with('prodi', $prodi)
         ->with('kota', $kota);
     }
 
@@ -38,14 +38,16 @@ class MahasiswaController extends Controller
     {
         $val = $request -> validate([
             'nama'=>'required',
-            'npm' => 'required|unique:mahasiswas',
-            'tempat_lahir'=>  'required',
-            'tanggal_lahir'=>  'required',
-            'alamat'=>  'required',
-            'kota_id'=> 'required',
-            'prodi_id'=> 'required',
-            'url_foto'=> 'required'
+            'npm' =>'required|unique:mahasiswas',
+            'tempat_lahir'=>'required',
+            'tanggal_lahir'=>'required',
+            'alamat'=>'required',
+            'kota_id'=>'required',
+            'prodi_id'=>'required',
+            'url_foto'=>'required'
         ]);
+
+        
         // simpan ke dalam tabel fakultas
         Mahasiswa::create($val);
         // redirect ke route fakultas

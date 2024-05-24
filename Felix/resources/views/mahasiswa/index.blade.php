@@ -27,8 +27,9 @@
                      @foreach ($mahasiswa as $mhs)
                      <tr> 
                         <td>{{ $mhs['npm']}}</td>
+                        <td>{{ $mhs['nama']}}</td>
                         <td>{{ $mhs['Prodi']['nama'] }} </td>
-                        <td>{{ $mhs['kota']['singkatan'] }} </td>
+                        <td>{{ $mhs['kota']['nama'] }} </td>
                      </tr>      
                      @endforeach
                   </tbody>
