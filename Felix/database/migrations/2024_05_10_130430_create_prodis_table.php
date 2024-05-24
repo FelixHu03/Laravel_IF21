@@ -16,7 +16,8 @@ return new class extends Migration
             $table-> primary('id');
             $table->string('nama');
             $table->uuid('fakultas_id');
-            $table-> foreign('fakultas_id')->references('id')->on('fakultas');
+            $table-> foreign('fakultas_id')
+            ->references('id')->on('fakultas');
             $table->timestamps();
         });
     }
