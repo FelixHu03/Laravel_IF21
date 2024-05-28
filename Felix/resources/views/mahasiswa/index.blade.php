@@ -25,11 +25,12 @@
                   </thead>
                   <tbody>
                      @foreach ($mahasiswa as $mhs)
-                     <tr> 
+                     <tr> s
                         <td>{{ $mhs['npm']}}</td>
                         <td>{{ $mhs['nama']}}</td>
                         <td>{{ $mhs['Prodi']['nama'] }} </td>
                         <td>{{ $mhs['kota']['nama'] }} </td>
+                        <td><a href="{{ route('mahasiswa.show', $mhs['id']) }}" class="btn btn-sm btn-info btn-rounded"> Show</a></td>
                      </tr>      
                      @endforeach
                   </tbody>
