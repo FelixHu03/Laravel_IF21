@@ -52,7 +52,7 @@
             <a class="nav-link" href="{{ url('mahasiswa') }}">
               <i class="mdi mdi-bio menu-icon"></i>
               <span class="menu-title">mahasiswa</span>
-              <div class="badge badge-info badge-pill">2</div>
+              <div class="badge badge-info badge-pill">99</div>
             </a>
           </li>
         <li class="nav-item sidebar-category">
