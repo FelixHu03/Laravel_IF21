@@ -6,6 +6,9 @@
             <table class="table">
                 <tbody>
                     <tr>
+                        <th>Foto</th>
+                    </tr>
+                    <tr>
                         <th>NPM</th>
                         <td>{{ $mahasiswa['npm'] }}</td>
                     </tr>

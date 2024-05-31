@@ -35,7 +35,8 @@ class MahasiswaController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
+        // dd($request);
         $val = $request -> validate([
             'nama'=>'required',
             'npm' =>'required|unique:mahasiswas',
@@ -44,8 +45,15 @@ class MahasiswaController extends Controller
             'alamat'=>'required',
             'kota_id'=>'required',
             'prodi_id'=>'required',
-            'url_foto'=>'required'
+            'url_foto'=>'required|file|mimes:png,jpg|max:5000'
         ]);
+        // rename file, misalnya: 2327250059.png
+        // ambil ext file
+        $ext = $request->url_foto->getClientOriginalExtension();//untuk ambil extensi png/jpg
+        $val['url_foto'] = $request->npm. "." .$ext;
+        // upload file bisa pakai move(), storeAs()
+        $request-> url_foto->move('foto', $val['url_foto']);
+        // foto: folder tujuan public/foto
 
         
         // simpan ke dalam tabel fakultas
@@ -86,6 +94,8 @@ class MahasiswaController extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
-        //
+        // dd($mahasiswa);
+        $mahasiswa->delete();
+        return redirect()->route('mahasiswa.index')->with('success', 'Data Berhasil dihapus');
     }
 }

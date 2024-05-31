@@ -11,7 +11,7 @@
                 <p class="card-description">
                   Basic form layout
                 </p>
-                <form class="forms-sample" action="{{  route('mahasiswa.store') }}" method="post">
+                <form class="forms-sample" action="{{  route('mahasiswa.store') }}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="form-group">
                         <label for="nama">Nama Mahasiswa</label>
@@ -78,8 +78,8 @@
                     </div>
                     {{-- url foto --}}
                     <div class="form-group">
-                      <label for="url_foto">foto</label>
-                      <input type="text" class="form-control" name="url_foto" placeholder="url_foto" value="{{ old('url_foto') }}">
+                      <label for="url_foto">File Foto</label>
+                      <input type="file" class="form-control" name="url_foto"  >
                       @error('url_foto')
                           {{ $message }}
                       @enderror
