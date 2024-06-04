@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\kota;
-use App\Models\Mahasiswa;
 use App\Models\Prodi;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class MahasiswaController extends Controller
 {
@@ -95,6 +96,7 @@ class MahasiswaController extends Controller
     public function destroy(Mahasiswa $mahasiswa)
     {
         // dd($mahasiswa);
+        File::delete('foto/'. $mahasiswa['url_foto']);//file foto di hapus
         $mahasiswa->delete();
         return redirect()->route('mahasiswa.index')->with('success', 'Data Berhasil dihapus');
     }

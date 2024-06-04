@@ -17,10 +17,12 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>Foto</th>
                                     <th>NPM</th>
                                     <th>Nama</th>
                                     <th>Nama Prodi</th>
                                     <th>Asal Kota</th>
+                                    <th>Confirm</th>
                                 </tr>
                             </thead>
                             <tbody>
