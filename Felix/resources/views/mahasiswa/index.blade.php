@@ -36,7 +36,7 @@
                                             <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="bten btn-sm btn-danger show_confirm"
+                                                <button type="submit" class="btn btn-sm btn-danger btn-rounded show_confirm"
                                                     data-toggle="tooltip" data-nama="{{ $mhs['nama'] }}"
                                                     title="Hapus">Hapus</button>
                                             </form>
@@ -80,7 +80,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    from.submit();
+                    form.submit();
                 }
             });
         });
