@@ -35,12 +35,14 @@
                                         <td>{{ $mhs['kota']['nama'] }} </td>
                                         <td><a href="{{ route('mahasiswa.show', $mhs['id']) }}"
                                                 class="btn btn-sm btn-info btn-rounded"> Show</a>
-                                            <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="post">
+                                            <a href="{{ route('mahasiswa.edit', $mhs['id']) }}"
+                                                class="btn btn-sm btn-info btn-rounded">Ubah</a>
+                                            <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="post" style="display: inline">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-sm btn-danger btn-rounded show_confirm"
                                                     data-toggle="tooltip" data-nama="{{ $mhs['nama'] }}"
-                                                    title="Hapus">Hapus</button>
+                                                    title="Hapus" >Hapus</button>
                                             </form>
                                         </td>
 
