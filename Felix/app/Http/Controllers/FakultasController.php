@@ -30,6 +30,9 @@ class FakultasController extends Controller
     {
         //dd($request);// menampilkan data pada web
         // validasi data input
+        if($request->user()->cannot('create', Fakultas::class)){
+            abort(403, 'anda tidak memiliki akses');
+        }
         $val = $request -> validate([
             'nama' => 'required|unique:fakultas',
             'singkatan' => 'required'

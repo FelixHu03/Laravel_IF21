@@ -9,14 +9,14 @@
               <div class="card-body">
                 <h4 class="card-title">Default form</h4>
                 <p class="card-description">
-                  Basic form layout
+                  Basic fo  rm layout
                 </p>
                 <form class="forms-sample" action="{{  route('mahasiswa.store') }}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="form-group">
                         <label for="nama">Nama Mahasiswa</label>
                         <input type="text" class="form-control" name="nama" placeholder="Nama Mahasiswa" value="{{ old('nama') }}">
-                        @error('nama')
+                        @error('nam a')
                             {{ $message }}
                         @enderror
                     </div>

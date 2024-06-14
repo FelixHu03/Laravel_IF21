@@ -37,6 +37,9 @@ class ProdiController extends Controller
     {
         //dd($request);// menampilkan data pada web
         // validasi data input
+        if($request->user()->cannot('create', Prodi::class)){
+            abort(403, 'Anda Tidak Memiliki akses');
+        }
         $val = $request -> validate([
             'nama' => 'required|unique:prodis',
             'fakultas_id' => 'required'

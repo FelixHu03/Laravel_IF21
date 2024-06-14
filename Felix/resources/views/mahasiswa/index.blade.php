@@ -12,7 +12,9 @@
                     <p class="card-description">
                         List Data Mahasiswa
                     </p>
-                    <a href="{{ url('mahasiswa/create') }}" class="btn btn-inverse-dark btn-fw">Tambah</a>
+                    @can('create', App\Model\Mahasiswa::class)
+                        <a href="{{ url('mahasiswa/create') }}" class="btn btn-inverse-dark btn-fw">Tambah</a>
+                    @endcan
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
@@ -35,15 +37,21 @@
                                         <td>{{ $mhs['kota']['nama'] }} </td>
                                         <td><a href="{{ route('mahasiswa.show', $mhs['id']) }}"
                                                 class="btn btn-sm btn-info btn-rounded"> Show</a>
+                                                @can('update', $mhs)
                                             <a href="{{ route('mahasiswa.edit', $mhs['id']) }}"
                                                 class="btn btn-sm btn-info btn-rounded">Ubah</a>
-                                            <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="post" style="display: inline">
+                                                @endcan
+                                            @can('delete', $mhs)
+                                            <form action="{{ route('mahasiswa.destroy', $mhs->id) }}" method="post"
+                                                style="display: inline">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm btn-danger btn-rounded show_confirm"
+                                                <button type="submit"
+                                                    class="btn btn-sm btn-danger btn-rounded show_confirm"
                                                     data-toggle="tooltip" data-nama="{{ $mhs['nama'] }}"
-                                                    title="Hapus" >Hapus</button>
+                                                    title="Hapus">Hapus</button>
                                             </form>
+                                            @endcan
                                         </td>
 
                                     </tr>
@@ -55,5 +63,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

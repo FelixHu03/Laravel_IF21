@@ -12,7 +12,9 @@
               <p class="card-description">
               List Data Fakultas
               </p>
-              <a href="{{ url('prodi/create') }}" class="btn btn-inverse-dark btn-fw">Tambah</a>
+              @can('create', App\Model\Prodi::class)
+                <a href="{{ url('prodi/create') }}" class="btn btn-inverse-dark btn-fw">Tambah</a>
+              @endcan
               <div class="table-responsive">
               <table class="table table-hover">
                   <thead>

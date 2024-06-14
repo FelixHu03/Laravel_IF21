@@ -26,7 +26,6 @@ class MahasiswaController extends Controller
     {
         $prodi = Prodi::all();
         $kota = kota::all();
-
         return view('mahasiswa.create')
             ->with('prodi', $prodi)
             ->with('kota', $kota);
@@ -38,6 +37,9 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         // dd($request);
+        if($request->user()->cannot('create', Mahasiswa::class)){
+            abort(403, 'anda tidak memiliki akses');
+        }
         $val = $request->validate([
             'nama' => 'required',
             'npm' => 'required|unique:mahasiswas',
@@ -70,6 +72,7 @@ class MahasiswaController extends Controller
     public function show(Mahasiswa $mahasiswa)
     {
         // dd($mahasiswa);
+        
         return view('mahasiswa.show')
             ->with('mahasiswa', $mahasiswa);
     }
@@ -80,6 +83,7 @@ class MahasiswaController extends Controller
     public function edit(Mahasiswa $mahasiswa)
     {
         // dd($mahasiswa);
+        
         $prodi = Prodi::all();
         $kota = kota::all();
 
