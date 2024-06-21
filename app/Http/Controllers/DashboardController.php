@@ -9,7 +9,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $mahasiswaProdi = DB::select("SELECT prodis.nama, COUNT(*) as jumlah 
+        $mahasiswaProdi = DB::select(
+        "SELECT prodis.nama, COUNT(*) as jumlah 
         FROM `mahasiswas` 
         JOIN prodis on mahasiswas.prodi_id = prodi_id
         GROUP by prodis.nama");
