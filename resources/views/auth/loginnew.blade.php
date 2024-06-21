@@ -31,7 +31,7 @@
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
-              <form class="pt-3" method="POST" action="/login/login">
+              <form class="pt-3" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group" >
                     {{-- email --}}
